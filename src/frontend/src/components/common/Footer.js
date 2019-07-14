@@ -21,7 +21,7 @@ const Footer = (props) => {
       <Typography component="p" variant="subtitle1"
         align="center" color="textSecondary"
       >
-        D&s Blogs
+        D&S Blogs
       </Typography>
     </footer>
   );
