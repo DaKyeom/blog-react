@@ -1,5 +1,7 @@
 .editor-template {
-    .panes {
+    flex: 1;
+
+         .panes {
         height: calc(100vh - 4rem);
         display: flex;
         position: relative;

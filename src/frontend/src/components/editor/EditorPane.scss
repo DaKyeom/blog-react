@@ -18,5 +18,11 @@
     .code-editor {
         flex: 1;
         background: #4C4C4C;
+        display: flex;
+        flex-direction: column;
+        :global .CodeMirror {
+            font-size: 1rem;
+            flex: 1;
+        }
     }
 }
