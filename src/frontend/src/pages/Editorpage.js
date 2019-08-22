@@ -1,7 +1,10 @@
 import React, { Component } from 'react';
 
-import {EditorTemplate, EditorHeader, EditorPreview} from './../components/editor';
-import EditorPane from './../components/editor/EditorPane';
+import { EditorTemplate } from './../components/editor';
+
+import EditorPaneContainer from './../components/editor/EditorPaneContainer';
+import EditorHeader from '../components/editor/EditorHeader';
+import EditorPreviewContainer from './../containers/editor/EditorPreviewContainer';
 
 class Editorpage extends Component {
     render(){
@@ -9,8 +12,8 @@ class Editorpage extends Component {
             <div>
                 <EditorTemplate
                     header={ <EditorHeader /> }
-                    editor={<EditorPane />}
-                    preview={<EditorPreview />}
+                    editor={<EditorPaneContainer />}
+                    preview={<EditorPreviewContainer />}
                  />
             </div>
         )

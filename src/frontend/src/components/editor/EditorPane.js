@@ -13,25 +13,61 @@ import 'codemirror/theme/monokai.css';
 
 class EditorPane extends Component {
     editor = null;
-    CodeMirror =null;
+    codeMirror = null;
+    cusor = null;
     
     initalizeEditor = () => {
-        this.CodeMirror = CodeMirror(this.editor, {
+        this.codeMirror = CodeMirror(this.editor, {
             mode: 'markdown',
             theme: 'monokai',
             lineNumbers: true,
             lineWrapping: true
         });
+        this.codeMirror.on('change', this.handleChangeMarkdown);
     }
 
     componentDidMount() {
         this.initalizeEditor();
     }
 
+    handleChange = (e) => {
+        const { onChangeInput } = this.props;
+        const { value, name } = e.target;
+
+        onChangeInput({ name, value });
+    }
+
+    handleChangeMarkdown = (body) => {
+        const { onChangeInput } = this.props;
+        
+        this.cursor = body.getCursor();
+        onChangeInput({ name: 'markdown', value: body.getValue() });
+    }
+
+    componentDidUpdate(prevProps, prevState ) {
+        if(prevProps.markdown !== this.props.markdown) {
+            const { codeMirror, cursor } = this;
+
+            if(!codeMirror) return;
+            codeMirror.setValue(this.props.markdown);
+
+            if(!cursor) return;
+            codeMirror.setCursor(cursor);
+        }
+    }
     render(){
+        const { title } = this.props;
+        const { handleChange } = this;
+
         return (
           <div className="editor-pane">
-              <input className='title' placeholder='제목입력' name='title' />
+              <input
+               className='title' 
+               placeholder='제목입력' 
+               name='title'
+               value={title}
+               onChange={handleChange}
+               />
               <div className='code-editor' ref={ref => this.editor=ref}></div>
           </div>
         );

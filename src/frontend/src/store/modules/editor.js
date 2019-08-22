@@ -8,14 +8,15 @@ const CHANGE_INPUT = 'editor/CHANGE_INPUT';
 
 //action constructor(액션 생성자)
 export const initialize = createAction(INITIALIZE);
-export const changeInpot = createAction(CHANGE_INPUT);
+export const changeInput = createAction(CHANGE_INPUT);
 
 //state reset(상태 초기화)
 const initialState = Map({
     title: '',
-    markdown:''
+    markdown: ''
 });
 
+//reducer
 export default handleActions({
     [INITIALIZE]: (state, action) => initialState,
     [CHANGE_INPUT]: (state, action) => {
