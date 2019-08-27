@@ -3,6 +3,14 @@ import marked from 'marked';
 
 // import './MarkdownRender.scss';
 
+// PrismJS
+import Prism from 'prismjs';
+// import 'prismjs/themes/prism-okaidia.css';
+import 'prismjs/components/prism-bash.min.js';
+import 'prismjs/components/prism-javascript.min.js';
+import 'prismjs/components/prism-jsx.min.js';
+import 'prismjs/components/prism-css.min.js';
+
 class MarkdownRender extends Component {
     state = { html: '' }
 
@@ -38,6 +46,9 @@ class MarkdownRender extends Component {
     componentDidUpdate(prevProps, prevState) {
         if(prevProps.markdown !== this.props.markdown) {
             this.renderMarkdown();
+        }
+        if(prevState.html !== this.state.html) {
+            Prism.highlightAll();
         }
     }
 
