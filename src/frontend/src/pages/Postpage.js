@@ -1,16 +1,16 @@
-import React, { Component } from 'react';
+import React from 'react';
 
 import { PageTemplate } from 'components/common';
-import { Post } from 'components/post';
+import PostContainer from 'containers/post/PostContainer';
 
-class Postpage extends Component {
-    render(){
-        return(
-          <PageTemplate>
-              <Post title="제목1" date="2019-06-22" body="본문 내용" />
-          </PageTemplate>
-        )
-    }
+const Postpage = ({match}) => {
+    const { id } =match.params;
+
+     return(
+        <PageTemplate>
+            <PostContainer id={id} />
+         </PageTemplate>
+     )
 }
 
 export default Postpage;

@@ -3,7 +3,7 @@ import React, { Component } from 'react';
 import { EditorTemplate } from './../components/editor';
 
 import EditorPaneContainer from './../components/editor/EditorPaneContainer';
-import EditorHeader from '../components/editor/EditorHeader';
+import EditorHeaderContainer from 'containers/editor/EditorHeaderContainer';
 import EditorPreviewContainer from './../containers/editor/EditorPreviewContainer';
 
 class Editorpage extends Component {
@@ -11,7 +11,7 @@ class Editorpage extends Component {
         return(
             <div>
                 <EditorTemplate
-                    header={ <EditorHeader /> }
+                    header={ <EditorHeaderContainer /> }
                     editor={<EditorPaneContainer />}
                     preview={<EditorPreviewContainer />}
                  />

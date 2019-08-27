@@ -8,7 +8,7 @@ class App extends Component {
     return (
       <Switch>
         <Route exact path="/" component={Homepage} />
-        <Route path="/posts" component={Postpage} />  
+        <Route path="/posts/:id" component={Postpage} />  
         <Route path="/editor" component={Editorpage} />
       </Switch>
     );
